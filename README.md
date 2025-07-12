@@ -28,3 +28,21 @@ Original BSRGAN Repository: https://github.com/cszn/BSRGAN
     # Inside your_script_name.sh
     INPUT_VIDEO="./video/your_video.mp4" # <-- Change this line
     ```
+## results
+### Server spec
+- ubuntu20.04.6 LTS
+- CPU
+    Core(s) per socket:              10
+    Socket(s):                       2
+    NUMA node(s):                    2
+    Vendor ID:                       GenuineIntel
+    CPU family:                      6
+    Model:                           79
+    Model name:                      Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz
+- GPU
+    tesla M40 (cuda)
+- Memorry
+    126GB
+
+### processing time
+- 3~4 seconds for process 1 png
