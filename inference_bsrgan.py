@@ -2,20 +2,21 @@ import os
 import argparse
 import logging
 import torch
-import sys
+import cv2
 
-# -- cv2 에러 
-import importlib.util
-# 1. cv2 모듈의 경로를 직접 지정
-# __init__.py 파일의 전체 경로를 지정
-cv2_path = '/opt/conda/lib/python3.8/site-packages/cv2/__init__.py'
-spec = importlib.util.spec_from_file_location('cv2', cv2_path)
-cv2 = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(cv2)
+# ============ cv2 에러 
+# import sys
+# import importlib.util
+# # 1. cv2 모듈의 경로를 직접 지정
+# # __init__.py 파일의 전체 경로를 지정
+# cv2_path = '/opt/conda/lib/python3.8/site-packages/cv2/__init__.py'
+# spec = importlib.util.spec_from_file_location('cv2', cv2_path)
+# cv2 = importlib.util.module_from_spec(spec)
+# spec.loader.exec_module(cv2)
 
 # 2. 로드된 cv2 모듈을 시스템 모듈 캐시에 등록, 다른 파일에서도 import cv2가 가능
-sys.modules['cv2'] = cv2
-
+# sys.modules['cv2'] = cv2
+# ============ cv2 에러 
 
 
 from utils import utils_logger
