@@ -9,8 +9,10 @@ Original BSRGAN Repository: https://github.com/cszn/BSRGAN
 3. upscale_video.sh
 
 ## Usage
+1. `sudo apt update && sudo apt install ffmpeg` / `brew install ffmpeg`
 
-1.  **Make the script executable:**
+
+2.  **Make the script executable:**
     Before running the script, you need to grant it execution permissions.
 
     ```bash
@@ -18,7 +20,7 @@ Original BSRGAN Repository: https://github.com/cszn/BSRGAN
     chmod +x upscale_video.sh
     ```
 
-2.  **Set your video path:**
+3.  **Set your video path:**
     Open the shell script (`split_video.sh`) and modify the `INPUT_VIDEO` variable to point to your video file.
     Open the shell script (`upscale_video.sh`) and modify the `INPUT_VIDEO` variable to point to your video file.
 

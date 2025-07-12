@@ -1,0 +1,8 @@
+# PyTorch for deep learning model
+torch
+
+# OpenCV for image processing (reading, saving, etc.)
+opencv-python
+
+# NumPy for numerical operations (often used by torch and opencv)
+numpy
