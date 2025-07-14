@@ -87,12 +87,22 @@ fi
 
 # --- 5. 모든 프레임을 동영상으로 재조합 ---
 echo "========================================================"
-echo "5/6: 모든 프레임을 동영상으로 재조합"
+echo "5/6: 모든 프레임을 동영상으로 재조합 (원본 음원 추가)"
 echo "========================================================"
-./ffmpeg -framerate "$FRAMERATE" -i "${OUTPUT_FRAMES_DIR}/frame_%08d.png" -c:v libx264 -pix_fmt yuv420p -crf 18 "$FINAL_VIDEO"
+
+# 1. 비디오에서 음원 추출
+TEMP_AUDIO="temp_audio.aac"
+./ffmpeg -i "$INPUT_VIDEO" -vn -acodec aac -b:a 128k "$TEMP_AUDIO"
+
+# 2. 이미지 프레임으로 비디오 생성 (원본 음원 포함)
+./ffmpeg -framerate "$FRAMERATE" -i "${OUTPUT_FRAMES_DIR}/frame_%08d.png" -i "$TEMP_AUDIO" -c:v libx264 -pix_fmt yuv420p -crf 18 -map 0:v -map 1:a -shortest "$FINAL_VIDEO"
+
+# 3. 임시 오디오 파일 삭제
+rm "$TEMP_AUDIO"
+
 echo ""
 
 # --- 6. 최종 완료 메시지 ---
 echo "========================================================"
-echo "6/6: 모든 작업이 완료되었습니다! 최종 파일: ${FINAL_VIDEO}"
+echo "6/6: 🎉 모든 작업이 완료되었습니다! 최종 파일: ${FINAL_VIDEO}"
 echo "========================================================"
